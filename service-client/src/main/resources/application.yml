@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: admin-client
+
+server:
+  port: 8768
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    health-check-url-path: /actuator/health
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761}/eureka/
